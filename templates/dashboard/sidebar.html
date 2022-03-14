@@ -1,0 +1,268 @@
+{% load orders_fetch %}
+{% load template_check %}
+
+<div id="sidebar" class="active">
+    <div class="sidebar-wrapper active">
+        <div class="sidebar-header">
+            <div class="d-flex justify-content-between">
+                <div class="logo">
+                    {% if temp|logo %}
+                        <a href="{% url 'dashboard:dashboard' %}"><img src="{{ temp|logo }}" style="width:220px;" alt="Logo" srcset=""></a>
+                    {% else %}
+                        <a href="{% url 'dashboard:dashboard' %}"><img src="/static/dashboard/assets/images/logo/logo.png" style="width:220px;" alt="Logo" srcset=""></a>
+                    {% endif %}
+                </div>
+                <div class="toggler">
+                    <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-menu">
+
+            {% if request.user.is_admin %}
+
+                <ul class="menu">
+
+                <li class="sidebar-item active ">
+                    <a href="{% url 'dashboard:dashboard' %}" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+            
+                {% if request.user|template_check == '1' %}
+
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-stack"></i>
+                            <span>Pages</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="{% url 'dashboard:allpages' %}">All pages</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{% url 'dashboard:pages' %}">Add new</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-stack"></i>
+                            <span>Posts</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="component-alert.html">All posts</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="component-badge.html">Add new</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-stack"></i>
+                            <span>General Info</span>
+                        </a>
+                        <ul class="submenu ">
+                            
+                            <li class="submenu-item ">
+                                <a href="{% url 'dashboard:logo' %}">Main logo</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{% url 'dashboard:title' %}">Change title</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{% url 'dashboard:favicon' %}">Favicon</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                {% elif request.user|template_check == '2' %}
+
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-file-break-fill"></i>
+                            <span>Pages</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="{% url 'dashboard:allpages' %}">All pages</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{% url 'dashboard:pages' %}">Add new</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item  ">
+                        <a href="{% url 'order:order_list' %}" class='sidebar-link'>
+                            <i class="bi bi-cart-plus-fill"></i>
+                            <span>Orders
+                                <span id="orderCount" class=" top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    
+                                    <span class="visually-hidden">unread messages</span>
+                                  </span>
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-bootstrap-fill"></i>
+                            <span>Banners</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="{% url 'store:main_banner' %}">Main banner</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{% url 'store:small_banner' %}">Small Banner</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{% url 'store:ads_banner' %}">Ads Banner</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-bag-check-fill"></i>
+                            <span>Products</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="{% url 'store:product_list' %}">All products</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{% url 'store:category_list' %}">All categories</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{% url 'store:brand_list' %}">All brands</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{% url 'store:variation_list' %}">All variations</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-info-square-fill"></i>
+                            <span>General Info</span>
+                        </a>
+                        <ul class="submenu ">
+                            
+                            <li class="submenu-item ">
+                                <a href="{% url 'dashboard:logo' %}">Main logo</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{% url 'dashboard:title' %}">Change title</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{% url 'dashboard:favicon' %}">Favicon</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                {% elif request.user|template_check == '3' %}
+
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-stack"></i>
+                            <span>Pages</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="{% url 'dashboard:allpages' %}">All pages</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{% url 'dashboard:pages' %}">Add new</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-stack"></i>
+                            <span>Products</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="component-alert.html">All products</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="component-badge.html">Add new product</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item  ">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-file-earmark-medical-fill"></i>
+                            <span>Vendors</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-stack"></i>
+                            <span>General Info</span>
+                        </a>
+                        <ul class="submenu ">
+                            
+                            <li class="submenu-item ">
+                                <a href="{% url 'dashboard:logo' %}">Main logo</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{% url 'dashboard:title' %}">Change title</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{% url 'dashboard:favicon' %}">Favicon</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                {% endif %}
+
+                    <li class="sidebar-item  ">
+                        <a href="{% url 'managetemplate:select_template' %}" class='sidebar-link'>
+                            <i class="bi bi-layout-wtf"></i>
+                            <span>Set template</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item  ">
+                        <a href="#" onclick="orderListShow()" class='sidebar-link'>
+                            <i class="bi bi-layout-wtf"></i>
+                            <span>Order JS</span>
+                        </a>
+                    </li>
+
+                </ul>
+            
+            {% else %}
+
+                <ul class="menu">
+
+                    <li class="sidebar-item active ">
+                        <a href="{% url 'dashboard:dashboard' %}" class='sidebar-link'>
+                            <i class="bi bi-grid-fill"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                
+                <ul>
+            
+            {% endif %}
+        </div>
+        <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+    </div>
+</div>
+
+
+        

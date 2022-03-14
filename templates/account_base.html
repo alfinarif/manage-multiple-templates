@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from t.commonsupport.com/industrez/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 Sep 2019 06:29:46 GMT -->
+<head>
+    {% load static %}
+    {% load template_check %}
+    <meta charset="utf-8">
+    <title>Cleverange | Account</title>
+    <!-- Stylesheets -->
+    <link href="{% static 'account/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'account/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'account/css/responsive.css' %}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{{ favicon }}" type="image/x-icon">
+    <link rel="icon" href="{{ favicon }}" type="image/x-icon">
+
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+
+<div class="page-wrapper">
+
+    <section class="login-section">
+        <div class="auto-container">
+            <div class="row clearfix justify-content-center">
+
+
+                {% block account_auth %}{% endblock account_auth %}
+
+
+            </div>
+        </div>
+    </section>
+</div>  
+
+<script src="{% static 'account/js/jquery.js' %}"></script>
+<script src="{% static 'account/js/popper.min.js' %}"></script>
+<script src="{% static 'account/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'account/js/jquery-ui.js' %}"></script>
+<script src="{% static 'account/js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'account/js/owl.js' %}"></script>
+<script src="{% static 'account/js/wow.js' %}"></script>
+<script src="{% static 'account/js/jquery.bootstrap-touchspin.js' %}"></script>
+<script src="{% static 'account/js/mixitup.js' %}"></script>
+<script src="{% static 'account/js/appear.js' %}"></script>
+<script src="{% static 'account/js/script.js' %}"></script>
+</body>
+
+<!-- Mirrored from t.commonsupport.com/industrez/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 Sep 2019 06:29:46 GMT -->
+</html>

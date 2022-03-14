@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from html.tonatheme.com/2019/Evha-intro/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 Sep 2019 04:19:21 GMT -->
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Select Templates</title>
+
+    <!-- Stylesheets -->
+    <link href="{% static 'select_template/css/style.css' %}" rel="stylesheet">
+    <link rel="icon" href="{% static 'select_template/images/favicon.ico' %}" type="image/x-icon">
+
+</head>
+
+<!-- page wrapper -->
+<body class="boxed_wrapper">
+
+
+    <!-- .preloader -->
+    <div class="preloader"></div>
+    <!-- /.preloader -->
+
+
+
+    <!-- main-demo -->
+    <section class="main-demo centred">
+        <div class="container">
+            <div class="title-box">
+                <h1>Pre-Built Templates</h1>
+                <div class="text">Launch your website look like a professional from our templates</div>
+            </div>
+            <div class="row">
+
+            {% for template in templates %}
+                
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="image-box">
+                    <h3><a href="{% url 'managetemplate:template_confirm' pk=template.id %}" target="_blank">{{ template.get_category_display  }}</a></h3>
+                    <figure class="image">
+                        <img src="{{ template.template_img.url }}" alt="">
+                        <input type="hidden" name="template_id" value="{{ template.id }}"/>
+                        <div class="icon-box"><a href="{% url 'managetemplate:template_confirm' pk=template.id %}" target="_blank"><i class="flaticon-plus"></i></a></div>
+                    </figure>
+                </div>
+            </div>
+                
+            {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- main-demo end -->
+
+
+
+
+    
+
+
+
+
+<br/>
+<br/>
+
+
+
+<!--Scroll to top-->
+<button class="scroll-top scroll-to-target" data-target="html">
+    <span class="fa fa-arrow-up"></span>
+</button>
+
+
+
+<!-- jequery plugins -->
+<script src="{% static 'select_template/js/jquery.js' %}"></script>
+<script src="{% static 'select_template/js/popper.min.js' %}"></script>
+<script src="{% static 'select_template/js/bootstrap.min.js' %}"></script>
+
+<!-- main-js -->
+<script src="{% static 'select_template/js/script.js' %}"></script>
+
+</body><!-- End of .page_wrapper -->
+
+<!-- Mirrored from html.tonatheme.com/2019/Evha-intro/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 Sep 2019 04:20:51 GMT -->
+</html>

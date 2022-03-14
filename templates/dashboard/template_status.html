@@ -1,0 +1,61 @@
+{% extends 'dashboard/base.html' %}
+    {% block body %}
+
+        {% include 'dashboard/sidebar.html' %}
+
+            <div class="page-heading">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Confirmation</h3>
+                        </div>
+
+                        <div class="col-12 col-md-6 order-md-2 order-first">
+                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Input Group</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+
+                
+
+                <!-- Inputs Group with Buttons -->
+                <section id="input-group-buttons">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-10 mb-1">
+                                                <form action="{% url 'managetemplate:select_template_action' pk %}" method="get" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                    
+                                                    <div class="input-group mb-3">
+                                                        <h4 style="color:red;">Dear user if you confirm to change template, your exists all data will be deleted!</h4>
+                                                        <button class="btn btn-primary" type="submit"
+                                                            id="button-addon2">Agree</button>
+                                                        
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Inputs Group with Buttons end -->
+
+                
+            </div>
+
+    {% endblock body %}

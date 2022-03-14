@@ -1,0 +1,25 @@
+{% extends 'account_base.html' %}
+    {% block account_auth %}
+
+        <div class="column col-lg-8 col-md-12 col-sm-12">
+            <h2>Verify email address</h2>
+            
+            <!-- Register Form -->
+            <div class="login-form register-form">
+                <!--Login Form-->
+                <form method="post" action="">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label>Enter verification CODE</label>
+                        <input type="text" name="code" placeholder="123456" required>
+                    </div>
+                    
+                    <div class="form-group text-right">
+                        <button class="theme-btn btn-style-one" type="submit" name="submit-form">Register</button>
+                    </div>
+                </form>      
+            </div>
+            <!--End Register Form -->
+        </div>
+
+{% endblock account_auth %}

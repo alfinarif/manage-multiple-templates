@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from html.tonatheme.com/2019/Saasweb/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 Sep 2019 05:34:10 GMT -->
+<head>
+    {% load static %}
+    {% load template_check %}
+
+    <meta charset="utf-8">
+    <title> {% block title %} {{ temp|page_title }} {% endblock title %} </title>
+    <!-- Stylesheets -->
+    <link href="{% static 'blog/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'blog/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'blog/css/responsive.css' %}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{{ temp|favicon }}" type="image/x-icon">
+    <link rel="icon" href="{{ temp|favicon }}" type="image/x-icon">
+
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+
+<div class="page-wrapper">
+ 	
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="spinner_wrap">
+            <div class="spinner"></div>
+        </div>
+    </div>
+ 	
+    <!-- Main Header-->
+    <header class="main-header header-style-five">
+    	<!--Header-Upper-->
+        <div class="header-upper">
+        	<div class="auto-container">
+            	<div class="header-outer">
+                	<div class="logo-box">
+                        {% if temp|logo %}
+                    	    <div class="logo"><a href="index-2.html"><img src="{{ temp|logo }}" style="width: 180px;" alt="" title=""></a></div>
+                        {% else %}
+                            <div class="logo"><a href="index-2.html"><img src="/static/blog/images/logo.png" style="width: 180px;" alt="" title=""></a></div>
+                        {% endif %}
+                    </div>
+                   	
+                   	<div class="nav-outer clearfix">
+                    
+						<!-- Main Menu -->
+						<nav class="main-menu navbar-expand-lg">
+							<div class="navbar-header">
+								<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
+							<div class="navbar-collapse collapse scroll-nav clearfix" id="navbarSupportedContent">
+								<ul class="navigation clearfix">
+                                    <li class="current dropdown"><a href="#">Home</a>
+                                        <ul>
+                                            <li><a href="index-2.html">Project Management</a></li>
+                                            <li><a href="index-3.html">Marketing</a></li>
+                                            <li><a href="index-4.html">Startup</a></li>
+                                            <li><a href="index-5.html">Sass Illustration</a></li>
+                                            <li><a href="index-6.html">App Landing</a></li>
+                                            <li class="current dropdown"><a href="#">Landing Page</a>
+                                                <ul>
+                                                    <li><a href="landing-1.html">Marketing</a></li>
+                                                    <li><a href="landing-2.html">Project Management</a></li>
+                                                    <li><a href="landing-3.html">Startup</a></li>
+                                                    <li><a href="landing-4.html">Sass Illustration</a></li>
+                                                    <li><a href="landing-5.html">App Landing</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li class="dropdown"><a href="#">Pages</a>
+                                        <ul>
+                                            <li><a href="team.html">Team</a></li>
+                                            <li><a href="pricing.html">Pricing</a></li>
+                                            <li><a href="faq.html">FAQ</a></li>
+                                            <li><a href="error.html">404</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="portfolio.html">Portfolio</a></li>
+                                    <li class="dropdown"><a href="#">News</a>
+                                        <ul>
+                                            <li><a href="blog.html">Blog Classic</a></li>
+                                            <li><a href="blog-single.html">Blog Single</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+							</div>
+						</nav>						
+                    </div>
+
+					<!--Outer Box-->
+					<div class="outer-box">
+                        {% if not request.user.is_authenticated %}
+						    <div class="link-btn"><a href="{% url 'accounts:login' %}" class="theme-btn btn-style-one">LOGIN</a></div>
+                        {% else %}
+                            <div class="link-btn"><a href="{% url 'accounts:register' %}" class="theme-btn btn-style-one">Account</a></div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Header Upper-->
+    </header>
+    <!--End Main Header -->
+
+
+
+    {% block blog %}{% endblock blog %}
+
+
+
+
+    <!-- Main Footer -->
+    <footer class="main-footer style-two">
+        <div class="auto-container">
+            <!--Widgets Section-->
+            <div class="widgets-section">
+                <div class="row">
+                    <!--Big Column-->
+                    <div class="big-column col-lg-7">
+                        <div class="row">
+                            <!--Footer Column-->
+                            <div class="footer-column col-lg-7 col-md-6">
+                                <div class="footer-widget about-widget">
+                                    <div class="footer-logo"><img src="images/logo.png" alt=""></div>
+                                    <div class="text">Nulla pariatur excepteur sint occaecat <br>cupidatat non proident sunt culpa qui <br> officia deserunt mollit anim. </div>
+                                    <form action="#">
+                                    	<input type="email" placeholder="Email address">
+                                    	<button type="submit"><span class="fas fa-arrow-right"></span></button>
+                                    </form>
+                                    <div class="copy-right-text">(c) SaasWeb 2019</div>
+                                </div>
+                            </div>
+
+                            <!--Footer Column-->
+                            <div class="footer-column col-lg-5 col-md-6">
+                                <div class="footer-widget links-widget">
+                                    <h4 class="widget-title">About Company</h4>
+                                    <div class="widget-content">
+                                        <ul class="list clearfix">
+                                            <li><a href="#">SaaSWeb Online</a></li>
+                                            <li><a href="#">Our Leadership</a></li>
+                                            <li><a href="#">Carrers</a></li>
+                                            <li><a href="#">What We Do</a></li>
+                                            <li><a href="#">Our Strategies</a></li>
+                                            <li><a href="#">Product Tour</a></li>
+                                            <li><a href="#">Partner Program</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Big Column-->
+                    <div class="big-column col-lg-5">
+                        <div class="row">
+                            <!--Footer Column-->
+                            <div class="footer-column col-md-6">
+                                <div class="footer-widget links-widget">
+                                    <h4 class="widget-title">Our Services</h4>
+                                    <div class="widget-content">
+                                        <ul class="list clearfix">
+                                            <li><a href="#">Business Dashboards</a></li>
+                                            <li><a href="#">Sales Analytics</a></li>
+                                            <li><a href="#">Digital Marketing</a></li>
+                                            <li><a href="#">Financial Help</a></li>
+                                            <li><a href="#">Helpdesk Analytics</a></li>
+                                            <li><a href="#">Embedded Support</a></li>
+                                            <li><a href="#">Reporting Software</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Footer Column-->
+                            <div class="footer-column col-md-6">
+                                <div class="footer-widget contact-widget">
+                                    <h4 class="widget-title">Contact Support</h4>
+                                    <ul class="widget-content">
+                                        <li>Phone: +654 023 9587</li>
+                                        <li>Email: support@example.com</li>
+                                        <li>Skype Help: saasweb.skype</li>
+                                    </ul>
+                                    <ul class="social-icon-one clearfix">
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- End Main Footer -->
+
+</div>
+<!--End pagewrapper-->
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fas fa-angle-up"></span></div>
+<script src="{% static 'blog/js/jquery.js' %}"></script>
+<script src="{% static 'blog/js/popper.min.js' %}"></script>
+<script src="{% static 'blog/js/pagenav.js' %}"></script>
+<script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'blog/js/jquery.paroller.min.js' %}"></script>
+<script src="{% static 'blog/js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'blog/js/appear.js' %}"></script>
+<script src="{% static 'blog/js/slick.min.js' %}"></script>
+<script src="{% static 'blog/js/owl.js' %}"></script>
+<script src="{% static 'blog/js/wow.js' %}"></script>
+<script src="{% static 'blog/js/element-in-view.js' %}"></script>
+<script src="{% static 'blog/js/script.js' %}"></script>
+</body>
+
+<!-- Mirrored from html.tonatheme.com/2019/Saasweb/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 Sep 2019 05:34:17 GMT -->
+</html>
